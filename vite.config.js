@@ -8,5 +8,7 @@ export default defineConfig({
             refresh: true,
             detectTls: false,
         }),
+        tailwindcss(),
+
     ],
 });
