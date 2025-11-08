@@ -23,4 +23,26 @@ class Product extends Model
         'quantity'=> 'integer',
         'price'=>'decimal:2',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function vendor()
+    {
+        return $this->belongsTo(VendorProfile::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function attributes()
+    {
+        return $this->belongsToMany(Attribute::class, 'product_attribute_values')->withPivot('value')->withTimestamps();
+    }
+
+
 }

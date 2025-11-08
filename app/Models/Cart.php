@@ -16,4 +16,14 @@ class Cart extends Model
         'total_items' => 'integer',
         'total_price' => 'decimal:2',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function cartItem()
+    {
+        return $this->hasMany(CartItem::class);
+    }
 }

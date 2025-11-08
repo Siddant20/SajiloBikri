@@ -10,4 +10,9 @@ class Attribute extends Model
         'name',
         'slug'
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_attribute_values')->withPivot('value')->withTimestamps();
+    }
 }

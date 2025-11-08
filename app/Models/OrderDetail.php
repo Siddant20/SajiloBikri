@@ -17,4 +17,14 @@ class OrderDetail extends Model
         'quantity' => 'integer',
         'unit_price' => 'decimal:2'
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function address()
+    {
+        return $this->hasOne(OrderAddress::class);
+    }
 }

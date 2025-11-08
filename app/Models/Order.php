@@ -27,4 +27,14 @@ class Order extends Model
         'payment_status' => PaymentStatusEnum::class,
         'order_placed_at' => 'datetime',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
 }

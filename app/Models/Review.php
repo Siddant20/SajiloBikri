@@ -20,6 +20,16 @@ class Review extends Model
     protected $casts = [
         'rating' => 'integer',
         'is_approved' => 'boolean',
-        'approved_at'=> 'datetime',
+        'approved_at' => 'datetime',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
