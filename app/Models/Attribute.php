@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Attribute extends Model
 {
     protected $fillable = [
         'name',
-        'slug',
+        'slug'
     ];
 }
