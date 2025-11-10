@@ -15,7 +15,7 @@ new class extends Component {
     }
 }; ?>
 
-<nav x-data="{ open: false }" class="bg-gradient-to-r from-purple-300 to-pink-300 dark:bg-gray-800  dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-gradient-to-r from-purple-300 to-blue-300 dark:bg-gray-800  dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -37,6 +37,7 @@ new class extends Component {
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <x-primary-button class="bg-yellow-300 hover:bg-yellow-100 text-black mx-2"> Post Ad +</x-primary-button>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
