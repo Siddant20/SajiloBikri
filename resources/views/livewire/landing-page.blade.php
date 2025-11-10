@@ -32,7 +32,7 @@
                     </div>
                     <div>
                         <p class=" font-medium">{{ $category->name }}</p>
-                        <p class="text-gray-500 text-xs">{{ $category->products_count }} ads</p>
+                        <p class="text-gray-500 text-xs">{{ $category->total_products_count }} ads</p>
                     </div>
                 </div>
             @endforeach
