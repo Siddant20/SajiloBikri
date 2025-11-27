@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CartItem extends Model
+class OrderDetail extends Model
 {
     protected $fillable = [
-        'cart_id',
+        'order_id',
         'product_id',
         'quantity',
         'unit_price',
@@ -18,13 +18,13 @@ class CartItem extends Model
         'unit_price' => 'decimal:2'
     ];
 
-    public function user()
+    public function order()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Order::class);
     }
 
-    public function cart()
+    public function address()
     {
-        return $this->belongsTo(Cart::class);
+        return $this->hasOne(OrderAddress::class);
     }
 }

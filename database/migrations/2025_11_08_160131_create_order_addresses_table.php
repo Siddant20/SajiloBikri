@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('address_details', function (Blueprint $table) {
+        Schema::create('order_addresses', function (Blueprint $table) {
             $table->id();
-            $table->morphs('addressable');
+            $table->foreignId('order_detail_id')->unique()->constrained()->cascadeOnDelete();
             $table->string('address_line1');
             $table->string('address_line2')->nullable();
             $table->string('city');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('address_details');
+        Schema::dropIfExists('order_addresses');
     }
 };

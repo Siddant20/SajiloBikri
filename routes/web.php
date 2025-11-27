@@ -1,8 +1,10 @@
 <?php
 
+use App\Livewire\LandingPage;
+use App\Livewire\Pages\CategoryIndex;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::get('/', LandingPage::class)->name('landing-page');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -12,4 +14,6 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::get('category/{category}', CategoryIndex::class)->name('index.category');
+
+require __DIR__ . '/auth.php';

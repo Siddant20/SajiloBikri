@@ -22,6 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'contact_number',
+        'email_verified_at',
+        'password',
     ];
 
     /**
@@ -55,7 +58,32 @@ class User extends Authenticatable
         return Str::of($this->name)
             ->explode(' ')
             ->take(2)
-            ->map(fn ($word) => Str::substr($word, 0, 1))
+            ->map(fn($word) => Str::substr($word, 0, 1))
             ->implode('');
+    }
+
+    public function vendorProfile()
+    {
+        return $this->hasOne(VendorProfile::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
+
+    public function address()
+    {
+        return $this->hasOne(UserAddress::class);
     }
 }
