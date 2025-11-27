@@ -24,9 +24,9 @@
         <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 ">
 
             @foreach ($categories as $category)
-                <div wire:key="category-{{ $category->id }}"
+                <a wire:key="category-{{ $category->id }}"
                     class="flex items-center gap-2 mx-6 mb-6 border p-3 border-gray-600 border-dotted rounded-md cursor-pointer text-gray-800 hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:bg-clip-text hover:text-transparent"
-                    a href="#">
+                    href="{{ route('index.category', $category) }}" wire:navigate>
                     <div>
                         <x-heroicon-o-computer-desktop class="w-8 h-8 text-purple-400" />
                     </div>
@@ -34,7 +34,7 @@
                         <p class=" font-medium">{{ $category->name }}</p>
                         <p class="text-gray-500 text-xs">{{ $category->total_products_count }} ads</p>
                     </div>
-                </div>
+                </a>
             @endforeach
 
         </div>
